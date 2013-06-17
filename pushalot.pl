@@ -33,7 +33,6 @@ Irssi::settings_add_str('pushalot', 'pushalot_auth_token', '<YOUR_AUTH_TOKEN>');
 
 sub pushalot {
     my ($server, $summary, $message) = @_;
-    print "Debug: $server | $summary | $message\n";
     my $ua ||= LWP::UserAgent->new;
     return if (!$ua);
     return if (Irssi::settings_get_str('pushalot_auth_token') eq '<YOUR_AUTH_TOKEN>');
@@ -71,5 +70,5 @@ Irssi::signal_add('print text', 'print_text_pushalot');
 Irssi::signal_add('message private', 'message_private_pushalot');
 Irssi::signal_add('dcc request', 'dcc_request_pushalot');
 
-print "Use /set pushalot_auth_token = YOUR_TOKEN_HERE to activate the pushalot script\n"
+Irssi::print("Use /set pushalot_auth_token = YOUR_TOKEN_HERE to activate the pushalot script")
    if Irssi::settings_get_str('pushalot_auth_token') eq '<YOUR_AUTH_TOKEN>';
