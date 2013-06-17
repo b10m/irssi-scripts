@@ -15,7 +15,6 @@
 use strict;
 use Irssi;
 use vars qw($VERSION %IRSSI);
-use HTML::Entities;
 use LWP::UserAgent;
 
 
